@@ -178,6 +178,36 @@ export default createSchema({
       ]
     },
 
+    // **** PORTFOLIOS LOGO
+    // {
+    //   name: 'portfolioLogos',
+    //   title: 'Portfolio Logos', 
+    //   type: 'document',
+    //   fields: [
+    //     {
+    //       name: 'portfolioRef',
+    //       title: 'Portfolio Reference',
+    //       type: 'reference',
+    //       to: [
+    //         {type: 'portfolios'}
+    //       ]
+    //     },
+    //     {
+    //       name: 'logos',
+    //       title: 'Logos',
+    //       type: 'array',
+    //       of: [
+    //         {
+    //           type: 'reference',
+    //           to: [
+    //             { type: 'logo'}
+    //           ],
+    //         }
+    //       ]
+    //     }
+    //   ]
+    // },
+
     // **** PORTFOLIOS
     {
       name: 'portfolios',
@@ -195,14 +225,25 @@ export default createSchema({
           type: 'boolean'
         },
         {
-          name: 'logo',
-          title: 'Logo',
-          type: 'reference',
-          to: [
-            { type: 'logo'}
+          name: 'logos',
+          title: 'Logos',
+          type: 'array',
+          of: [ {
+            type: 'reference',
+            to: [{type: 'logo'}]
+            }
           ],
           validation: Rule => Rule.required()
         },
+        // {
+        //   name: 'logo',
+        //   title: 'Logo',
+        //   type: 'reference',
+        //   to: [
+        //     { type: 'logo'}
+        //   ],
+        //   validation: Rule => Rule.required()
+        // },
         {
           name: 'title',
           title: 'Title',
