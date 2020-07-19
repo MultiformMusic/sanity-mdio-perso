@@ -20,7 +20,7 @@ const buildAuthorContentForLanguage = () => {
     ]
 
   }))
-  console.log(arrayOfBlock)
+
   arrayOfBlock.map(blk => console.log(blk))
   return arrayOfBlock;
 }
@@ -36,7 +36,29 @@ export default createSchema({
     // LOCALISATION Object
     localeString,
 
-    // AUTHOR INTRO document
+    // **** LOGOS document
+    {
+      name: 'logo',
+      title: 'Logo',
+      type: 'document',
+      fields: [
+        {
+          name: 'name',
+          title: 'Name',
+          type: 'string'
+        },
+        {
+          name: 'logoImage',
+          title: 'Logo Image',
+          type: 'image',
+          options: {
+            hotspot: true
+          }
+        }
+      ]
+    },
+
+    // **** AUTHOR INTRO document
     {
 
       name: 'author',
@@ -48,6 +70,8 @@ export default createSchema({
           title: 'Name',
           type: 'string'
         },
+
+        // Author content EN
         {
           name: 'authorContentEn',
           title: 'Author Content EN',
@@ -88,6 +112,8 @@ export default createSchema({
             }
           ]
         },
+
+        // Author content FR
         {
           name: 'authorContentFr',
           title: 'Author Content FR',
@@ -132,10 +158,11 @@ export default createSchema({
       ]
     },
 
-    // LOGOS document
+    // **** SECTION DESCRIPTION 
     {
-      name: 'logo',
-      title: 'Logo',
+
+      name: 'descriptionSection',
+      title: 'Section Description',
       type: 'document',
       fields: [
         {
@@ -144,23 +171,29 @@ export default createSchema({
           type: 'string'
         },
         {
-          name: 'logoImage',
-          title: 'Logo Image',
-          type: 'image',
-          options: {
-            hotspot: true
-          }
+          name: 'description',
+          title: 'Description',
+          type: 'localeString'
         }
       ]
     },
 
-    // PORTFOLIOS
+    // **** PORTFOLIOS
     {
       name: 'portfolios',
       title: 'Portfolios',
       type: 'document',
       fields: [
-
+        {
+          name: 'name',
+          title: 'Name',
+          type: 'string'
+        },
+        {
+          name: 'visibility',
+          title: 'Visibility',
+          type: 'boolean'
+        },
         {
           name: 'logo',
           title: 'Logo',
@@ -173,7 +206,7 @@ export default createSchema({
         {
           name: 'title',
           title: 'Title',
-          type: 'string'
+          type: 'localeString'
         },
 
         {
@@ -189,6 +222,18 @@ export default createSchema({
           options: {
             hotspot: true
           }
+        },
+        {
+          name: 'date',
+          title: 'Date',
+          type: 'datetime',
+          validation: Rule => Rule.required()
+        },
+        {
+          name: 'slug',
+          type: 'slug',
+          title: 'Slug',
+          validation: Rule => Rule.required()
         }
       ]
 
