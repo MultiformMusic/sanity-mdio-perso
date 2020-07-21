@@ -21,7 +21,7 @@ const buildAuthorContentForLanguage = () => {
 
   }))
 
-  arrayOfBlock.map(blk => console.log(blk))
+  //arrayOfBlock.map(blk => console.log(blk))
   return arrayOfBlock;
 }
 
