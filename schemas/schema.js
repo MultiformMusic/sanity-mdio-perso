@@ -6,6 +6,11 @@ import schemaTypes from 'all:part:@sanity/base/schema-type';
 
 import localeString from './localeString';
 import supportedLanguages from './languages';
+import logos from './logos';
+import author from './author';
+import sectionDescription from './section-description';
+import portfolios from './portfolios';
+import musics from './musics';
 
 const buildAuthorContentForLanguage = () => {
 
@@ -37,282 +42,19 @@ export default createSchema({
     localeString,
 
     // **** LOGOS document
-    {
-      name: 'logo',
-      title: 'Logo',
-      type: 'document',
-      fields: [
-        {
-          name: 'name',
-          title: 'Name',
-          type: 'string'
-        },
-        {
-          name: 'logoImage',
-          title: 'Logo Image',
-          type: 'image',
-          options: {
-            hotspot: true
-          }
-        }
-      ]
-    },
+    logos,
 
     // **** AUTHOR INTRO document
-    {
-
-      name: 'author',
-      type: 'document',
-      title: 'Author',
-      fields: [
-        {
-          name: 'name',
-          title: 'Name',
-          type: 'string'
-        },
-
-        // Author content EN
-        {
-          name: 'authorContentEn',
-          title: 'Author Content EN',
-          type: 'array',
-          of: [
-            {
-              type: 'block'
-            },
-            {
-              type: 'image',
-              fields: [
-                {
-                  title: 'Image Position',
-                  name: 'position',
-                  type: 'string',
-                  options: {
-                    list: [
-                      {title: 'Center', value: 'center'},
-                      {title: 'Left', value: 'left'},
-                      {title: 'Right', value: 'right'}
-                    ],
-                    layout: 'radio',
-                    isHighlighted: true
-                  }
-                },
-                {
-                  type: 'text',
-                  name: 'alt',
-                  title: 'Description',
-                  options: {
-                    isHighlighted: true
-                  }
-                }
-              ],
-              options: {
-                hotspot: true
-              }
-            }
-          ]
-        },
-
-        // Author content FR
-        {
-          name: 'authorContentFr',
-          title: 'Author Content FR',
-          type: 'array',
-          of: [
-            {
-              type: 'block'
-            },
-            {
-              type: 'image',
-              fields: [
-                {
-                  title: 'Image Position',
-                  name: 'position',
-                  type: 'string',
-                  options: {
-                    list: [
-                      {title: 'Center', value: 'center'},
-                      {title: 'Left', value: 'left'},
-                      {title: 'Right', value: 'right'}
-                    ],
-                    layout: 'radio',
-                    isHighlighted: true
-                  }
-                },
-                {
-                  type: 'text',
-                  name: 'alt',
-                  title: 'Description',
-                  options: {
-                    isHighlighted: true
-                  }
-                }
-              ],
-              options: {
-                hotspot: true
-              }
-            }
-          ]
-        }
-
-      ]
-    },
+    author,
 
     // **** SECTION DESCRIPTION 
-    {
-
-      name: 'descriptionSection',
-      title: 'Section Description',
-      type: 'document',
-      fields: [
-        {
-          name: 'name',
-          title: 'Name',
-          type: 'string'
-        },
-        {
-          name: 'description',
-          title: 'Description',
-          type: 'localeString'
-        }
-      ]
-    },
-
-    // **** PORTFOLIOS LOGO
-    // {
-    //   name: 'portfolioLogos',
-    //   title: 'Portfolio Logos', 
-    //   type: 'document',
-    //   fields: [
-    //     {
-    //       name: 'portfolioRef',
-    //       title: 'Portfolio Reference',
-    //       type: 'reference',
-    //       to: [
-    //         {type: 'portfolios'}
-    //       ]
-    //     },
-    //     {
-    //       name: 'logos',
-    //       title: 'Logos',
-    //       type: 'array',
-    //       of: [
-    //         {
-    //           type: 'reference',
-    //           to: [
-    //             { type: 'logo'}
-    //           ],
-    //         }
-    //       ]
-    //     }
-    //   ]
-    // },
+    sectionDescription,
 
     // **** PORTFOLIOS
-    {
-      name: 'portfolios',
-      title: 'Portfolios',
-      type: 'document',
-      fields: [
-        {
-          name: 'name',
-          title: 'Name',
-          type: 'string'
-        },
-        {
-          name: 'visibility',
-          title: 'Visibility',
-          type: 'boolean'
-        },
-        {
-          name: 'logos',
-          title: 'Logos',
-          type: 'array',
-          of: [ {
-            type: 'reference',
-            to: [{type: 'logo'}]
-            }
-          ],
-          validation: Rule => Rule.required()
-        },
-        // {
-        //   name: 'logo',
-        //   title: 'Logo',
-        //   type: 'reference',
-        //   to: [
-        //     { type: 'logo'}
-        //   ],
-        //   validation: Rule => Rule.required()
-        // },
-        {
-          name: 'title',
-          title: 'Title',
-          type: 'localeString'
-        },
-
-        {
-          name: 'subTitle',
-          title: 'Subtitle',
-          type: 'localeString'
-        },
-
-        {
-          name: 'coverImage',
-          title: 'Cover Image',
-          type: 'image',
-          options: {
-            hotspot: true
-          }
-        },
-        {
-          name: 'date',
-          title: 'Date',
-          type: 'datetime',
-          validation: Rule => Rule.required()
-        },
-        {
-          name: 'slug',
-          type: 'slug',
-          title: 'Slug',
-          validation: Rule => Rule.required()
-        }
-      ]
-
-    },
+    portfolios,
 
     // ***** MUSICS
-    {
-      name: 'musics',
-      title: 'Musics',
-      type: 'document',
-      fields: [
-        {
-          name: 'name',
-          title: 'Music Name',
-          type: 'string'
-        },
-        {
-          name: 'visibility',
-          title: 'Visibility',
-          type: 'boolean'
-        },
-        {
-          name: 'linkList',
-          title: 'Music Link List',
-          type: 'string'
-        },
-        {
-          name: 'linkBlock',
-          title: 'Music Link Block',
-          type: 'string'
-        },
-        {        
-          name: 'pistNumber',
-          title: 'Pist Number',
-          type: 'number'
-        }
-      ]
-    }
+    musics
 
   ])
 })
