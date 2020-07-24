@@ -46,6 +46,16 @@ export default     {
         }
       },
       {
+        name: 'content',
+        title: 'Content',
+        type: 'array',
+        of: [ {
+          type: 'reference',
+          to: [{type: 'portfolioContent'}]
+          }
+        ],
+      },
+      {
         name: 'date',
         title: 'Date',
         type: 'datetime',

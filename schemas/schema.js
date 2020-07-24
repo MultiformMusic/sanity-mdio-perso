@@ -11,6 +11,7 @@ import author from './author';
 import sectionDescription from './section-description';
 import portfolios from './portfolios';
 import musics from './musics';
+import portfolioContent from './portfolio-content';
 
 const buildAuthorContentForLanguage = () => {
 
@@ -52,6 +53,9 @@ export default createSchema({
 
     // **** PORTFOLIOS
     portfolios,
+
+    // ***** PORTFOLIO CONTENT
+    portfolioContent,
 
     // ***** MUSICS
     musics
