@@ -14,6 +14,11 @@ export default     {
         title: 'Visibility',
         type: 'boolean'
       },
+      {        
+        name: 'order',
+        title: 'Order',
+        type: 'number'
+      },
       {
         name: 'logos',
         title: 'Logos',

@@ -52,7 +52,7 @@ export default {
             ]
         },
 
-        // Author content FR
+        // Portfolio content FR
         {
             name: 'portfolioContentFr',
             title: 'Portfolio Content FR',
