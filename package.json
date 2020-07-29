@@ -28,6 +28,6 @@
     "sanity-plugin-mux-input": "^0.2.1"
   },
   "devDependencies": {
-    "@sanity/cli": "1.149.18"
+    "@sanity/cli": "1.149.16"
   }
 }
