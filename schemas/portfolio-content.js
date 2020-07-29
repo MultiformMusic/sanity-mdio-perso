@@ -37,6 +37,19 @@ export default {
                     }
                 },
                 {
+                    title: 'Image Size',
+                    name: 'size',
+                    type: 'string',
+                    options: {
+                    list: [
+                        {title: 'Normal', value: 'normal'},
+                        {title: 'Large', value: 'large'},
+                    ],
+                    layout: 'radio',
+                    isHighlighted: true
+                    }
+                },
+                {
                     type: 'text',
                     name: 'alt',
                     title: 'Description',
@@ -84,6 +97,19 @@ export default {
                         {title: 'Center', value: 'center'},
                         {title: 'Left', value: 'left'},
                         {title: 'Right', value: 'right'}
+                    ],
+                    layout: 'radio',
+                    isHighlighted: true
+                    }
+                },
+                {
+                    title: 'Image Size',
+                    name: 'size',
+                    type: 'string',
+                    options: {
+                    list: [
+                        {title: 'Normal', value: 'normal'},
+                        {title: 'Large', value: 'large'},
                     ],
                     layout: 'radio',
                     isHighlighted: true
