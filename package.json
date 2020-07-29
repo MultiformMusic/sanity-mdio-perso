@@ -27,5 +27,7 @@
     "react-dom": "^16.2",
     "sanity-plugin-mux-input": "^0.2.1"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@sanity/cli": "1.149.18"
+  }
 }
